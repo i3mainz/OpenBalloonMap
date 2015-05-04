@@ -19,6 +19,7 @@ The MIT License (MIT)
 Copyright (c) 2015 [i3mainz](http://i3mainz.hs-mainz.de/en/institute)**
 
 **Florian Thiery M.Sc.
+
 **Martin Unold M.Sc.
 
 **[i3mainz](http://i3mainz.hs-mainz.de/en/institute) - Institute for Spatial Information and Surveying Technology
