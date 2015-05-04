@@ -1,4 +1,4 @@
-# The Labeling System
+# Open Balloon Map
 
 **OpenBallonMap** is a free available balloonmap using Java / JavaScript / JSP and a PostGIS / GeoServer connection
 
