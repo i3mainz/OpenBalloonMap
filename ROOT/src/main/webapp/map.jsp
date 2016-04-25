@@ -18,12 +18,16 @@
 		<link rel="stylesheet" href="css/leaflet.css" />
 		<link rel="stylesheet" href="css/MarkerCluster.css" />
 		<link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+		<link rel="stylesheet" href="css/leaflet-measure.css" />
+		<link rel="stylesheet" href="css/L.Control.MousePosition.css" />
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jquery-ui.js"></script>
 		<script type="text/javascript" src="js/leaflet.js"></script>
 		<script type="text/javascript" src="js/leaflet.markercluster-src.js"></script>
 		<script type="text/javascript" src="js/Leaflet.singletilewms.js"></script>
 		<script type="text/javascript" src="js/Control.FullScreen.js"></script>
+		<script type="text/javascript" src="js/leaflet-measure.js"></script>
+		<script type="text/javascript" src="js/L.Control.MousePosition.js"></script>
 		<script type="text/javascript" src="js/addContent.js"></script>
 		<script>
 			var OPENBALLOON_URI = "";
@@ -108,6 +112,7 @@
 		var set_trajek_ajf = false;
 		var set_trajek_hochzeit = false;
 		var set_trajek_infotag = false;
+		var set_trajek_infotag2 = false;
 		var set_trajek_sommerfest = false;
 		var set_trajek_wima1 = false;
 		var set_trajek_wima2 = false;
@@ -133,12 +138,20 @@
 			position: 'topleft'
 		});
 		map.addControl(zoomControl);
+		
+		// measure tool
+		var measureControl = L.control.measure({position: 'topleft', activeColor: '#FF0000', completedColor: '#FF0000', primaryLengthUnit: 'kilometers', primaryAreaUnit: 'sqmeters'});
+		measureControl.addTo(map);
 
 		//OpenStreetMap Humanitarian
 		L.tileLayer('http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
 			maxZoom: 17,
 			attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>, Tiles courtesy of <a href="http://hot.openstreetmap.org/" target="_blank">Humanitarian OpenStreetMap Team</a>'
 		}).addTo(map);
+		
+		// add scale and coordinates
+		L.control.scale().addTo(map);
+		L.control.mousePosition().addTo(map);
 
 		//OpenStreetMap normal
 		/*L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {

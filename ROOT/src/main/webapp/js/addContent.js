@@ -73,6 +73,12 @@ function showFinds(name, event_name) {
 			setTimeout(function() { map.setView([49.457110, 8.408175], 7); }, 0);
 		} else if (name.indexOf("Wissenschaftsmarkt") !==-1) {
 			setTimeout(function() { map.setView([49.998949, 8.271531], 7); }, 0);
+		} else if (name.indexOf("Info-Tag der Hochschule Mainz") !==-1) {
+			setTimeout(function() { map.setView([49.98893, 8.22691], 7); }, 0);
+		} else if (name.indexOf("Demo-Event") !==-1) {
+			setTimeout(function() { map.setView([53.028889, -9.288333], 7); }, 0);
+		} else if (name.indexOf("Pressetermin Schulgeographentag 2016") !==-1) {
+			setTimeout(function() { map.setView([50.440211, 7.815161], 7); }, 0);
 		} else {
 			// Mitte Deutschland
 			setTimeout(function() { map.setView([51.163375, 10.447683], 7); }, 0);
@@ -247,6 +253,12 @@ var trajek_infotag = L.tileLayer.wms("/geoserver/openballoon/wms", {
 	transparent: true,
 	attribution: "Trajektorien &copy; HYSPLIT (HYbrid Single-Particle Lagrangian Integrated Trajectory) Model access via NOAA ARL READY Website"
 });
+var trajek_infotag2 = L.tileLayer.wms("/geoserver/openballoon/wms", {
+	layers: 'openballoon:trajektorien_hsinfotag_2015',
+	format: 'image/png',
+	transparent: true,
+	attribution: "Trajektorien &copy; HYSPLIT (HYbrid Single-Particle Lagrangian Integrated Trajectory) Model access via NOAA ARL READY Website"
+});
 var trajek_hochzeit = L.tileLayer.wms("/geoserver/openballoon/wms", {
 	layers: 'openballoon:trajektorien_boochs',
 	format: 'image/png',
@@ -290,6 +302,11 @@ function showTrajektorien() {
 			set_trajek_infotag = false;
 			trajektorien_control_legend2.removeFrom(map);
 			trajektorien = false;
+		} else if (eventname==="Info-Tag der Hochschule Mainz") {
+			map.removeLayer(trajek_infotag2);
+			set_trajek_infotag2 = false;
+			trajektorien_control_legend.removeFrom(map);
+			trajektorien = false;
 		} else if (eventname==="Daeumling Sommerfest 2014") {
 			map.removeLayer(trajek_sommerfest2014);
 			set_trajek_sommerfest = false;
@@ -317,10 +334,15 @@ function showTrajektorien() {
 			set_trajek_hochzeit = true;
 			trajektorien_control_legend.addTo(map);
 			trajektorien = true;
-		} else if (eventname.indexOf("Info-Tag") !==-1) {
+		} else if (eventname==="FH Info-Tag") {
 			map.addLayer(trajek_infotag);
 			set_trajek_infotag = true;
 			trajektorien_control_legend2.addTo(map);
+			trajektorien = true;
+		} else if (eventname==="Info-Tag der Hochschule Mainz") {
+			map.addLayer(trajek_infotag2);
+			set_trajek_infotag2 = true;
+			trajektorien_control_legend.addTo(map);
 			trajektorien = true;
 		} else if (eventname.indexOf("Sommerfest") !==-1) {
 			map.addLayer(trajek_sommerfest2014);
@@ -363,6 +385,11 @@ function resetTrajektorien() {
 			map.removeLayer(trajek_infotag);
 			set_trajek_infotag = false;
 			trajektorien = false;
+		} else if (set_trajek_infotag2) {
+			trajektorien_control_legend.removeFrom(map);
+			map.removeLayer(trajek_infotag2);
+			set_trajek_infotag2 = false;
+			trajektorien = false;
 		} else if (set_trajek_sommerfest) {
 			trajektorien_control_legend.removeFrom(map);
 			map.removeLayer(trajek_sommerfest2014);
@@ -390,6 +417,8 @@ function removeTrajektorienLegends() {
 		trajektorien_control_legend.removeFrom(map);
 	} else if (set_trajek_infotag) {
 		trajektorien_control_legend2.removeFrom(map);
+	} else if (set_trajek_infotag2) {
+		trajektorien_control_legend.removeFrom(map);
 	} else if (set_trajek_sommerfest) {
 		trajektorien_control_legend.removeFrom(map);
 	} else if (set_trajek_wima1) {
@@ -406,6 +435,8 @@ function addTrajektorienLegends() {
 		trajektorien_control_legend.addTo(map);
 	} else if (set_trajek_infotag) {
 		trajektorien_control_legend2.addTo(map);
+	} else if (set_trajek_infotag2) {
+		trajektorien_control_legend.addTo(map);
 	} else if (set_trajek_sommerfest) {
 		trajektorien_control_legend.addTo(map);
 	} else if (set_trajek_wima1) {
