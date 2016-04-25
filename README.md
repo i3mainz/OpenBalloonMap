@@ -1,10 +1,14 @@
 # Open Balloon Map
 
-**OpenBallonMap** is a free available balloonmap using Java / JavaScript / JSP and a PostGIS / GeoServer connection
-
 Geoinformation für alle – Luftballons im Dienste der Wissenschaft. Unter dem Motto "OpenBalloonMap" vermittelt das i3mainz Grundlagen der Geoinformatik und präsentiert Projekte aus der Umwelt- und Gesundheitsforschung. Die ersten Ergebnisse sind auf der Projektwebsite "openballoonmap.org" einsehbar.
 
+**OpenBallonMap** is a free available balloonmap using Java / JavaScript / JSP and a PostGIS / GeoServer connection.
+
 Here, the sourcecode of the server and client application is published.
+
+The "ROOT" folder is a Netbeans project, if you build it, you will get a WAR file.
+
+You have to run this WAR file in an Apache Tomcat using a PostgreSQL / PostGIS 2.x database (with an bunch of existing [tables](https://github.com/i3mainz/OpenBalloonMap/blob/master/ROOT/src/main/resources/create.sql)) and configure the properties in the [config.properties](https://github.com/i3mainz/OpenBalloonMap/blob/master/ROOT/src/main/resources/config.properties) file. You need also a GeoServer that gives the data via a WMS / WFS interface.
 
 Want to see the app? [See the application.](http://openballoonmap.org)
 
