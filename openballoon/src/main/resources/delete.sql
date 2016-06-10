@@ -1,0 +1,3 @@
+DROP TABLE Find;
+DROP TABLE Balloon;
+DROP TABLE Event;
