@@ -6,9 +6,9 @@ Geoinformation für alle – Luftballons im Dienste der Wissenschaft. Unter dem 
 
 Here, the sourcecode of the server and client application is published.
 
-The "ROOT" folder is a Netbeans project, if you build it, you will get a WAR file.
+The "openballoon" folder is a Netbeans project, if you build it, you will get a WAR file. Run it as "ROOT".
 
-You have to run this WAR file in an Apache Tomcat using a PostgreSQL / PostGIS 2.x database (with an bunch of existing [tables](https://github.com/i3mainz/OpenBalloonMap/blob/master/ROOT/src/main/resources/create.sql)) and configure the properties in the [config.properties](https://github.com/i3mainz/OpenBalloonMap/blob/master/ROOT/src/main/resources/config.properties) file. You need also a GeoServer that gives the data via a WMS / WFS interface.
+You have to run this WAR file in an Apache Tomcat using a PostgreSQL / PostGIS 2.x database (with an bunch of existing tables and configure the properties in the config.properties file. You need also a GeoServer that gives the data via a WMS / WFS interface.
 
 Want to see the app? [See the application.](http://openballoonmap.org)
 
@@ -20,11 +20,13 @@ More about the project you can find at the [i3mainz](http://i3mainz.hs-mainz.de/
 
 The MIT License (MIT)
 
-Copyright (c) 2015 [i3mainz](http://i3mainz.hs-mainz.de/en/institute)**
+Copyright (c) 2016 [i3mainz](http://i3mainz.hs-mainz.de/en/institute)**
 
 **Florian Thiery M.Sc.
 
 **Martin Unold M.Sc.
+
+**Axel Kunz M.Sc.
 
 **[i3mainz](http://i3mainz.hs-mainz.de/en/institute) - Institute for Spatial Information and Surveying Technology
 
